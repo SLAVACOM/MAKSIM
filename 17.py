@@ -1,22 +1,23 @@
-ARRAY_LENGTH = 10
-MIN_ELEMENT_ARRAY = -100
-MAX_ELEMENT_ARRAY = 100
+# Параметры которые можно изменять
+ARRAY_LENGTH = 10  # Размер массива
+MIN_ELEMENT_ARRAY = -100  # Миниммальное число которое может быть в массиве
+MAX_ELEMENT_ARRAY = 100  # Максимальное число которое может быть в массиве
 
 import random
-def genArray():
-    array = []
-    for i in range(ARRAY_LENGTH):
+def genArray(): #Ф-я создаёт массив и заполняет его рандомными числами
+    array = [] #Создаётся массив
+    for i in range(ARRAY_LENGTH): #Заполняется массив
         array.append(random.randint(MIN_ELEMENT_ARRAY,MAX_ELEMENT_ARRAY+1))
-    print(f"Массив: {array}.")
+    print(f"Массив: {array}.") #выводит массив
     return array
 
-def calculateArray(array):
+def calculateArray(array):#Ф-ия
     sum_positnive = 0
     product_negative = 1
     for i in array:
-        if i < 0:
+        if i < 0: # Если элемент отрицательный
             product_negative *= i
-        else:
+        else: # Если элемент положительный
             sum_positnive += i
     if abs(product_negative) > sum_positnive:
         print("Абсолютная величина произведения отрицательных элементов больше чем сумма положительных элементов.")
